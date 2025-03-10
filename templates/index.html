@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Traffic Management System</h1>
+
+        <!-- Upload Video Section -->
+        <div id="uploadSection">
+            <input type="file" id="videoInput" accept="video/*">
+            <button onclick="uploadVideo()">Upload Video</button>
+        </div>
+
+        <!-- Video Display and Prediction Button Section -->
+        <div id="videoContainer" style="display: none; margin-top: 20px;">
+            <video id="uploadedVideo" width="640" controls autoplay></video>
+            <div style="margin-top: 10px;">
+                <button id="predictButton" style="display: none;" onclick="processFrame()">Capture & Predict</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" style="display: none; margin-top: 20px;">
+            <h3>Results</h3>
+            <p id="vehicleCount"></p>
+            <p id="predictedTime"></p>
+            <img id="outputImage" style="display: none; margin-top: 10px;" />
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
